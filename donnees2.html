@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="fr" xml:lang="fr">
+  <head>
+    <title>des Données &amp; des Chiffres</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Philippe MICHEL" />
+    <meta name="date" content="2022-10-13" />
+    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
+    <script src="libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# des Données &amp; des Chiffres
+]
+.subtitle[
+## Gestion &amp; Exploitation des données
+]
+.author[
+### Philippe MICHEL
+]
+.institute[
+### Réanimation médico-chirurgicale - USRC
+]
+.date[
+### 2022-10-13
+]
+
+---
+
+
+
+
+
+class: inverse, center, middle
+
+# Introduction
+---
+# Du travail pour 5 ans&amp;hellip;
+  ![](images/etude1.png)
+  
+---
+# Du travail pour 5 ans&amp;hellip;
+  ![](images/etude2.png)
+ 
+---
+class: inverse, center, middle
+
+# Avant le recueil
+---
+# le Programme
+
+
+## Écrire le protocole
+&amp;nbsp; &lt;BR&gt;
+
+- Quelles données recueillir ?
+- Où &amp; Comment les stocker ?
+- Nombre de sujets ?
+
+---
+# Principes &amp; Erreurs
+
+La science est reproductible : .large[**tout noter**]
+
+--
+&lt;BR&gt;
+Pour gérer des données&lt;BR&gt; on utilise une **base de données**
+
+--
+&lt;BR&gt;
+Quand techniquement ça se complique, &lt;BR&gt;on **sous-traite**
+
+
+---
+# La science est reproductible
+  ![](images/firm.png)
+  &lt;br&gt;
+
+ .lg[**40 000** articles invalidés]
+  
+  .right[ou 3 900 &amp;hellip;]
+
+---
+class: inverse, center, middle
+
+# des Variables
+
+---
+# Les variables c'est simple ? 
+&lt;BR&gt;
+
+
+
+```r
+*  sqrt(2)^2 == 2 
+```
+
+```
+## [1] FALSE
+```
+
+--
+&lt;BR&gt;
+
+
+```r
+* sqrt(2)^2 - 2 
+```
+
+```
+## [1] 4.440892e-16
+```
+---
+# Variables standards
+## Numériques
+&lt;BR&gt;
+  
+  
+.pull-left[
+#### Entiers
+
+RAS
+
+]
+.pull-right[
+
+##### Décimaux
+L'enfer des arrondis !!!
+]
+
+    
+
+---
+ # Variables textuelles
+
+.pt[Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se  fermaient si vite que je n’avais pas le temps de me dire : « Je m’endors. » Et, une  demi-heure après, la pensée qu’il était temps de chercher le sommeil m’éveillait ; je  voulais poser le volume que je croyais avoir encore dans les mains et souffler ma lumière ; je n’avais pas cessé en dormant de faire des réflexions sur ce que je venais de lire, mais ces réflexions avaient pris un tour un peu particulier ; il me semblait que j’étais moi-même ce dont parlait l’ouvrage : une église, un quatuor, la rivalité de François Ier et de Charles Quint. Cette croyance survivait pendant quelques secondes à mon réveil ; elle ne choquait pas ma raison mais pesait comme des écailles sur mes yeux et les empêchait de se rendre compte que le bougeoir n’était plus allumé. Puis elle commençait à me devenir inintelligible, comme après la métempsycose les pensées d’une existence antérieure ; le sujet du livre se détachait de moi, j’étais libre de m’y appliquer ou non ; aussitôt je recouvrais la vue et j’étais bien étonné de trouver autour de moi une obscurité, douce et reposante pour mes yeux, mais peut-être plus encore pour mon esprit, à qui elle apparaissait comme une chose sans cause, incompréhensible, comme une chose vraiment obscure.]
+---
+#  Variables textuelles simples ?
+&lt;BR&gt;
+
+- Oui
+- oui
+- OUI
+- oui_
+  
+---
+# Variables discrètes
+&lt;BR&gt;
+
+.pull-left[
+#### Non ordonnées
+- Blond
+- Brun
+- Chatain
+- Noir
+- Roux
+]
+.pull-right[
+#### Ordonnées
+
+**Échelle de Likert**
+
+- Un peu
+- Beaucoup
+- Passionnément
+- À la folie
+]
+
+---
+# Date &amp; heure
+&lt;BR&gt;
+
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Norme &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ecriture &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Français &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 25/12/2022 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Français &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 25/12/22 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; USA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 12-25-2022 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ISO 8601 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2022-12-25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+# Variables autres
+
+    
+.pull-left[
+- Texte brut
+- Images
+ - Cartes
+ - &amp;hellip;
+    
+]
+.pull-right[
+![](images/chat.jpg)
+]
+
+---
+
+# Liste de Variables
+&lt;table&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; nom &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; type &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; valeur &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Date d'admission &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; date &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; dd/mm/yyyy &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Âge du patient &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; entier &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 18 - 110 ans &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sexe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; F/M &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Poids &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; décimal &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 30-200 Kg &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; IGS II à l’admission &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; entier &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 6 - 150 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Oxygénothérapie &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; entier &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 - 20 L/min &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Ventilation invasive &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; oui/non &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sédation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; oui/non &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Curarisation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; oui/non/NSP &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+---
+# Variables&amp;hellip; 
+
+### Questionnaire HTML
+.pull-left[
+&lt;p&gt; Âge
+ &lt;input type ='NUMBER' 
+  name = 'age' 
+  min = '18' 
+  max = '110'&gt;
+&lt;/p&gt; 
+]
+.pull-right[
+### HTML
+```{}
+&lt;p&gt; Âge
+&lt;input  type = 'NUMBER' 
+        name = 'age' 
+        min = '18' 
+        max = '110'&gt;
+&lt;/p&gt; 
+```
+]
+---
+# Variables&amp;hellip; 
+
+### R
+
+
+```r
+*t.test(age~esc, var.equal = TRUE, data = tt)
+```
+
+```
+## 
+## 	Two Sample t-test
+## 
+## data:  age by esc
+## t = -2.6647, df = 1225, p-value = 0.007806
+## alternative hypothesis: true difference in means between group non and group oui is not equal to 0
+## 95 percent confidence interval:
+##  -5.479494 -0.832403
+## sample estimates:
+## mean in group non mean in group oui 
+##          61.11245          64.26840
+```
+
+---
+class: inverse, center, middle
+# des Données
+
+---
+layout: true
+background-image: url(images/fichier.jpg)
+background-size: cover
+
+---
+# Stocker les données
+ 
+---
+layout: false
+# Stocker les données
+
+![](images/ecrf.png)
+
+---
+# Où stocker ? 
+
+.pull-left[
+
+##### Tableur
+     
+- nb max de cas : 	1 048 576
+- Pas de sécurité à la saisie
+- Pas de sauvegarde intégrée
+- Format non standard
+- Travail collectif ?
+]
+.pull-right[
+
+#### Base de données
+&lt;br&gt;
+- Saisie simple (formulaire)
+- Saisie normée, contrôlée
+- Données sécurisées
+- Base centralisée, accessible à tous
+        
+]
+
+---
+# Stockage des données en sécurité
+&lt;BR&gt;
+
+ - **Technique** Café, Disque dur HS&amp;hellip;
+ - **Anonyme** Mais il faut pouvoir retrouver un dossier
+ - **Accessible** À tous les centres mais que aux centres 
+ - **Conforme** CNIL&amp;hellip;
+&lt;br&gt;
+
+.lg[**C'est un métier**]
+
+---
+
+# Organiser son tableau
+
+## Un grand rectangle
+  &lt;br&gt;
+  
+
+- Un seul tableau (*si possible*)
+- Variables en colonne, individus en ligne
+- Que les données, pas de calcul etc.
+- Une ligne de titre, titres uniques
+- Utilisez la validation de données
+---
+
+# Titres, Sujets &amp; Variables
+  
+.center[![](images/tab1.png)]
+
+
+--
+&lt;BR&gt;
+.center[![](images/tab2.png)]
+
+---
+# Titres, Sujets &amp; Variables
+
+  
+.center[![](images/tab2.png)]
+
+
+```r
+*t.test(Spo2_H1,SpO2_H2)
+```
+--
+
+.center[![](images/tab3.png)]
+
+
+```r
+*t.test(spo2~heure)
+```
+---
+class: inverse, center, middle
+
+# Nombre de cas
+
+---
+# Nombre de cas
+&lt;BR&gt;
+
+
+`$$n =\frac{(z_{(1-\mathbf{\alpha})}-z_{(1-\mathbf{\beta})})}{2(\arcsin\sqrt{P_{ref}}-\arcsin \sqrt{\color{red}{P_{nouveau}}})}$$`
+
+
+---
+# du Nombre
+
+
+#### ISIS 2
+
+Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among **17,187 cases** of suspected acute myocardial infarction: ISIS-2 (Lancet 1988)
+
+*p &lt; 0,00001*
+--
+
+#### GUSTO I
+An International Randomized Trial Comparing Four Thrombolytic Strategies for Acute Myocardial Infarction (NEJM 1993)
+
+    
+41 000 cas  (*p = 0,006*)
+---
+![](images/grippe1.png)
+
+---
+
+![](images/grippe2.png)
+ 
+---
+# `\(p &lt; 5 \%\)` ???
+![](images/pvalue1-1.png)
+
+---
+# `\(p &lt; 5 \%\)` ???
+![](images/pvalue2-1.png)
+
+---
+# `\(p &lt; 5 \%\)` ???
+![](images/pvalue3-1.png)
+
+---
+class: inverse, center, middle
+# Recueil des Données
+
+---
+![](images/travail.jpg)
+---
+![](images/missing.jpeg)
+
+---
+class: inverse, center, middle
+
+# Après le recueil
+
+---
+# Le problème
+ 164 180 187 180 180 170 **NA** 170 165 168 170 160 172
+NA 169 160 **NA** 175 170 NA
+155 172 150 **NA** 170 **NA** 175 180
+NA 165 175 156 167 180 174 180 184 155 176 159 175 169
+170 158 180 155 178 147 155 180 156 178 165 175 171 172 170 165 182
+160 **NA** NA 160 160 155 174 182 182 170
+180 163 **NA** 176 177 177 145 173 173 176 153 170 168 167
+167 169 169 170 150 160 172 174 175 152 170 175 165 181 179
+NA 173 182 177 177 181 181 160 155 155 175 191 174 172
+170 172 183 165 166 155 183 170 170 185 180 170 170 170 170 180 165
+156 180 172 173 170 180 163 172 170 173 170 166 163 175 164 156 175
+175 166 164 170 181 172 165 163 167 170 170 173 163 177 172 165 163
+162 180 162 165 155 175 165 165 159 175 175 170 175 180 160 162 170
+170 170 175 180 158 165 185 175 175 152 165 165 162 162 175 170 158
+158 168 173 160 180 175 176 175 153 180 157 162 150 165 171 168 180
+170 170 170 180 170 170 169 180 170 172 185 172 175 186 168 171 180
+174 165 170 180 162 175 161 178 170 168 165 176 163 160 171 150 160
+165 175 168 170 185 175 175 184 153 158 189 162 170 150 175 178 170
+186 170 178 170 165 175 170 168 175 162 176 180 176 156 169 165 160
+185 184 179 170 150 **NA** 177 180 168 165 152 170 180
+NA 171 176 160 177 170 150 165 160 175 172
+NA 150 **NA** 170 **NA** 165 150
+167 167 170 165 160 **NA** 175 165 160 170 166 165 185 165
+175 182 170 175 162 **NA** 167 162 163 177 160 165 167 165
+165 180 172 **NA** 170 147 173 174 **NA** 172
+160 160 170 177 170 162 170 160 161 155 165 170 170 145 169 175 175
+171 163 178 180 171 178 163 170 170 160
+
+---
+# Les stats servent à &amp;hellip;
+
+.pull-left[
+![](images/pcinq.jpg) 
+]
+.pull-right[
+- .lg[**Décrire sa population**]
+- Présenter les résultats
+- .pt[Faire des tests]
+]
+---
+# Il n'y a pas que `\(p&lt;5\%\)`
+**Il faut décrire ses données !**  &lt;br&gt;
+  
+.pull-left[
+&lt;img src="donnees2_files/figure-html/sext-1.png" width="720" /&gt;
+]
+.pull-right[
+#### Simple
+        
+- Moyennes, écart-type
+- % ± Intervalle de confiance
+- Médiane, quartiles
+]
+---
+# Il n'y a pas que `\(p&lt;5\%\)`
+.lg[**Il faut décrire ses données !**]  &lt;br&gt;
+  
+.pull-left[
+![](images/data5.png)
+]
+.pull-right[
+##### Data mining
+  
+- Clustering
+- Analyse factorielle
+- Deep Learning
+- Données textuelles
+- &amp;hellip;
+]
+---
+# Du texte
+.center[![](images/mots1.png)]
+---
+# Cartes
+![](images/carte.jpg)
+---
+# Cartes
+.center[![](images/echo.jpg)]
+---
+# Des tests&amp;hellip;
+.pull-left[
+**Test simples**
+      
+- t de Student
+- `\(\chi^2\)`
+- non paramétrique de Wilcoxon
+- ANOVA
+- Coefficient de corrélation (Spearman ou Pearson)
+- Cochran-Mantel-Haenszel
+- &amp;hellip;
+]
+.pull-right[
+`$$s^2 =\sum_{x=1}^n\frac{(x_n-\bar{x})^2}{n-1}$$`
+
+`$$f(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{\frac{-(x-\mu)^2}{2\sigma^{2}}}$$`
+
+`$$t^{n-1}_{1-\alpha/2}&lt;\frac{|m_1-m_2|}{S^2\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}$$`
+
+`$$\xi_{CMH} = \frac{\big[{\sum_{i=1}^K (A_i - {N_{1i} M_{1i}\over T_i})\big]^2}} {\sum_{i=1}^K{N_{1i}N_{2i}M_{1i}M_{2i}\over T_i^2(T_i-1)}}$$`
+]
+---
+# Analyse monovariée
+
+&lt;div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:850px; overflow-x: scroll; width:100%; "&gt;&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;"&gt;
+&lt;caption&gt;Tableau comparatif&lt;/caption&gt;
+ &lt;thead&gt;
+&lt;tr&gt;
+&lt;th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;" colspan="1"&gt;&lt;/th&gt;
+&lt;th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;" colspan="2"&gt;&lt;div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; "&gt;Escarre&lt;/div&gt;&lt;/th&gt;
+&lt;th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;" colspan="1"&gt;&lt;/th&gt;
+&lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt;   &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt; non &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt; oui &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt; p &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;alite.7.j.av&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &amp;lt; 0,001 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; non &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 739/899 (82.2 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 130/215 (60.5 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; oui &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 160/899 (17.8 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 85/215 (39.5 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;age&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 61.1 ± 16.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 64.3 ± 14.8 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.008 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;taille&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 169 ± 9.34 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 171 ± 9.57 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.011 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;sexe&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.055 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; f &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 318/924 (34.4 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 59/214 (27.6 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; h &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 606/924 (65.6 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 155/214 (72.4 \%) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;poids.ad&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 76.9 ± 19.3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 80.6 ± 21.7 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0.012 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;igs&lt;/span&gt; &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 40.8 ± 19.5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 49.9 ± 19.4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; &amp;lt; 0,001 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;&lt;span style="font-style: italic;"&gt;Note: &lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; moyenne ± ecart-type - nb/total (%) &lt;/td&gt;&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;&lt;/div&gt;
+
+---
+# Des tests&amp;hellip;
+**Analyses multivariées**
+#### Régressions
+        
+- Linéaire
+- Logistique
+- Score de propension
+- &amp;hellip;
+
+&lt;BR&gt;
+
+`$$PA=f(\alpha + \beta_1(\text{age})+\beta_2(\text{sexe})+\beta_3(\text{poids})+\epsilon)$$`
+---
+# Analyse multivariée
+&lt;img src="donnees2_files/figure-html/multi-1.png" width="720" /&gt;
+
+
+---
+# Un peu de recul&amp;hellip;
+ 
+ #### Forme simplifiée
+
+`$$IC_{1-\alpha}= p \pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}$$`
+&lt;br&gt;
+
+##### Équation probabiliste
+
+`$$\mathbb{P}\left(-z_{\alpha/2} \leq
+      \frac{\frac{X}{n}-p}{\sqrt{\frac{p(1-p)}{n}}} \leq
+      z_{\alpha/2}\right)\thickapprox 1-\alpha$$`
+
+
+
+
+
+---
+# Un peu de recul&amp;hellip;
+
+`$$IC_{1-\alpha}= p \pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}$$`
+&lt;br&gt;
+
+![](images/vingt.png)
+
+---
+# Un peu de recul&amp;hellip;
+
+![](images/analyse.png)
+
+.right[R. Silberzahn,2018]
+
+---
+# Un peu de recul&amp;hellip;
+
+![](images/analyse3.png)
+
+.right[R. Silberzahn,2018]
+
+--- 
+# CONCLUSION
+
+![](images/garbage.jpg)
+
+- **Qualité des données**
+- **Taille de l'échantillon**
+- **Du bon sens**
+- **Se méfier de tout**
+
+---
+.center[.lg[**Il existe trois types de menteurs :**]]
+
+
+
+- .lg[**les menteurs**]
+- .lg[**les fieffés menteurs**]
+- .lg[** *&amp;* les .red[statisticiens]**]
+
+
+  \end{center
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"slideNumberFormat": " ",
+"self_contained": true
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
