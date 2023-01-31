@@ -1,0 +1,95 @@
+html {
+  font-size: xx-large;
+}
+
+h1 {
+       margin-bottom: 40px;
+}
+
+h2 {
+     color: red;
+     font-size: 2rem;
+     text-align: center;
+     text-shadow: 1px 1px 1px #f111111;
+     font-weight: bold;
+     margin: 0;
+     width:100%;
+}
+
+h3 {
+     flex-basis : 70%;
+     text-transform: uppercase; 
+     color: #005559;
+     font-size: 2rem;
+     text-align: center;
+     font-weight: bold;
+     margin-bottom: 30px;
+}
+
+h4 {
+background-color: green;
+color: white;
+margin:  40px 0 10px 0;
+padding: 2px 2px 2px 20px;
+font-weight: bold;
+font-size: 1.6rem;
+border-radius: 10px;
+}
+
+h5 {
+background-color: red;
+color: white;
+margin: 40px 0 10px 0;
+padding: 2px 2px 2px 20px;
+font-size: 1.6rem;
+border-radius: 10px;
+}
+
+p {
+	padding :0;
+	font-size: 1rem;
+  line-height: 150%;
+}
+
+li{
+  font-size: 1rem;
+}
+
+.rouge{
+  color: red;
+  font-weight: bold;
+}
+
+.pt{
+  	font-size: 0.6em;
+}
+
+.lg{
+  	font-size: 1.5em;
+}	
+  	
+.cadre{
+  border: 2px solid #005559; 
+  padding: 5px;
+}   	
+
+.remark-slide-content {
+  font-size: 28px;
+  padding: 20px 80px 20px 80px;
+}
+.remark-code, .remark-inline-code {
+  background: #f0f0f0;
+}
+.remark-code {
+  font-size: 20px;
+}
+     
+
+.inverse{
+  background-color: #005559;
+}
+
+.title-slide{
+  background-color:  #fafafa;
+  color:red;
+}

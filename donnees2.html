@@ -4,8 +4,7 @@
     <title>des Données &amp; des Chiffres</title>
     <meta charset="utf-8" />
     <meta name="author" content="Philippe MICHEL" />
-    <meta name="date" content="2022-10-13" />
-    <script src="libs/header-attrs-2.17/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.20/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/metropolis.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/metropolis-fonts.css" rel="stylesheet" />
@@ -24,13 +23,13 @@ class: center, middle, inverse, title-slide
 ## Gestion &amp; Exploitation des données
 ]
 .author[
-### Philippe MICHEL
+### Philippe <strong>MICHEL</strong>
 ]
 .institute[
-### Réanimation médico-chirurgicale - USRC
+### .right[<img src="images/novo_usrc.png" />]
 ]
 .date[
-### 2022-10-13
+### <img src="images/raddict.png" style="width:15.0%" />
 ]
 
 ---
@@ -39,10 +38,25 @@ class: center, middle, inverse, title-slide
 
 
 
+# Ce topo contient...
+&lt;BR&gt; &lt;BR&gt;
+- .lg[du Code informatique]
+- .lg[des Équations]
+- .lg[de la Littérature]
+- .lg[un Chaton]
+---
 class: inverse, center, middle
 
 # Introduction
+
 ---
+layout: true
+background-image: url(images/desordre.jpg)
+background-size: cover
+---
+# De bonnes données ?   
+---
+layout: false
 # Du travail pour 5 ans&amp;hellip;
   ![](images/etude1.png)
   
@@ -51,6 +65,7 @@ class: inverse, center, middle
   ![](images/etude2.png)
  
 ---
+
 class: inverse, center, middle
 
 # Avant le recueil
@@ -59,14 +74,18 @@ class: inverse, center, middle
 
 
 ## Écrire le protocole
-&amp;nbsp; &lt;BR&gt;
 
 - Quelles données recueillir ?
 - Où &amp; Comment les stocker ?
-- Nombre de sujets ?
+
+&lt;BR&gt;
+## Un calcul
+
+- Nombre de cas
 
 ---
 # Principes &amp; Erreurs
+&lt;BR&gt;
 
 La science est reproductible : .large[**tout noter**]
 
@@ -146,11 +165,30 @@ L'enfer des arrondis !!!
 #  Variables textuelles simples ?
 &lt;BR&gt;
 
-- Oui
-- oui
-- OUI
-- oui_
-  
+&lt;table class=" lightable-classic" style='font-size: 40px; font-family: "Arial Narrow", "Source Sans Pro", sans-serif; width: auto !important; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; value &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Oui &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; OUI &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; oui &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; oui &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; oui &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 ---
 # Variables discrètes
 &lt;BR&gt;
@@ -164,7 +202,7 @@ L'enfer des arrondis !!!
 - Roux
 ]
 .pull-right[
-#### Ordonnées
+##### Ordonnées
 
 **Échelle de Likert**
 
@@ -178,7 +216,7 @@ L'enfer des arrondis !!!
 # Date &amp; heure
 &lt;BR&gt;
 
-&lt;table&gt;
+&lt;table class="table table-striped" style="font-size: 40px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; Norme &lt;/th&gt;
@@ -223,10 +261,11 @@ L'enfer des arrondis !!!
 ---
 
 # Liste de Variables
-&lt;table&gt;
+&lt;table class="table table-striped" style="font-size: 30px; margin-left: auto; margin-right: auto;"&gt;
  &lt;thead&gt;
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; nom &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; code &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; type &lt;/th&gt;
    &lt;th style="text-align:left;"&gt; valeur &lt;/th&gt;
   &lt;/tr&gt;
@@ -234,46 +273,55 @@ L'enfer des arrondis !!!
 &lt;tbody&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Date d'admission &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; date_adm &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; date &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; dd/mm/yyyy &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; Âge du patient &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; entier &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 18 - 110 ans &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: yellow !important;"&gt; Âge du patient &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: yellow !important;"&gt; age &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: yellow !important;"&gt; entier &lt;/td&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: yellow !important;"&gt; 18 - 110 ans &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Sexe &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sexe &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; F/M &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Poids &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; poids &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; décimal &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 30-200 Kg &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; IGS II à l’admission &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; igs2 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; entier &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 6 - 150 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Oxygénothérapie &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; o2 &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; entier &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; 0 - 20 L/min &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Ventilation invasive &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; vent_inv &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; oui/non &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Sédation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; sedat &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; oui/non &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:left;"&gt; Curarisation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; curare &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; facteur &lt;/td&gt;
    &lt;td style="text-align:left;"&gt; oui/non/NSP &lt;/td&gt;
   &lt;/tr&gt;
@@ -351,20 +399,19 @@ layout: false
 
 ##### Tableur
      
-- nb max de cas : 	1 048 576
+- nb max de cas
 - Pas de sécurité à la saisie
 - Pas de sauvegarde intégrée
-- Format non standard
 - Travail collectif ?
 ]
 .pull-right[
 
 #### Base de données
-&lt;br&gt;
+
 - Saisie simple (formulaire)
 - Saisie normée, contrôlée
 - Données sécurisées
-- Base centralisée, accessible à tous
+- Base centralisée
         
 ]
 
@@ -381,20 +428,72 @@ layout: false
 .lg[**C'est un métier**]
 
 ---
-
 # Organiser son tableau
 
-## Un grand rectangle
-  &lt;br&gt;
-  
+&lt;table class="table table-striped" style="font-size: 30px; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; id &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; var_1 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; var_2 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; var_3 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; var_4 &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; var_5 &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cas_1 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cas_2 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cas_3 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; NA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cas_4 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cas_5 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; cas_6 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; abc &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 
-- Un seul tableau (*si possible*)
-- Variables en colonne, individus en ligne
-- Que les données, pas de calcul etc.
-- Une ligne de titre, titres uniques
-- Utilisez la validation de données
 ---
-
 # Titres, Sujets &amp; Variables
   
 .center[![](images/tab1.png)]
@@ -429,7 +528,7 @@ class: inverse, center, middle
 
 ---
 # Nombre de cas
-&lt;BR&gt;
+&lt;BR&gt; &lt;BR&gt;
 
 
 `$$n =\frac{(z_{(1-\mathbf{\alpha})}-z_{(1-\mathbf{\beta})})}{2(\arcsin\sqrt{P_{ref}}-\arcsin \sqrt{\color{red}{P_{nouveau}}})}$$`
@@ -441,21 +540,24 @@ class: inverse, center, middle
 
 #### ISIS 2
 
-Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among **17,187 cases** of suspected acute myocardial infarction: ISIS-2 (Lancet 1988)
+Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among **17,187 cases** of suspected acute myocardial infarction: ISIS-2&lt;BR&gt; *Lancet 1988*
 
 *p &lt; 0,00001*
---
+
+---
+# du Nombre
 
 #### GUSTO I
-An International Randomized Trial Comparing Four Thrombolytic Strategies for Acute Myocardial Infarction (NEJM 1993)
+An International Randomized Trial Comparing Four Thrombolytic Strategies for Acute Myocardial Infarction &lt;BR&gt; *NEJM 1993*
 
     
-41 000 cas  (*p = 0,006*)
+.lg[**41 000** cas  (*p = 0,006*)]
 ---
+#Grippe
 ![](images/grippe1.png)
 
 ---
-
+#Grippe
 ![](images/grippe2.png)
  
 ---
@@ -573,7 +675,7 @@ NA 150 **NA** 170 **NA** 165 150
 - `\(\chi^2\)`
 - non paramétrique de Wilcoxon
 - ANOVA
-- Coefficient de corrélation (Spearman ou Pearson)
+- Coefficient de corrélation 
 - Cochran-Mantel-Haenszel
 - &amp;hellip;
 ]
@@ -589,93 +691,489 @@ NA 150 **NA** 170 **NA** 165 150
 ---
 # Analyse monovariée
 
-&lt;div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:850px; overflow-x: scroll; width:100%; "&gt;&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;"&gt;
-&lt;caption&gt;Tableau comparatif&lt;/caption&gt;
- &lt;thead&gt;
-&lt;tr&gt;
-&lt;th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;" colspan="1"&gt;&lt;/th&gt;
-&lt;th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;" colspan="2"&gt;&lt;div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; "&gt;Escarre&lt;/div&gt;&lt;/th&gt;
-&lt;th style="empty-cells: hide;border-bottom:hidden;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;" colspan="1"&gt;&lt;/th&gt;
-&lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt;   &lt;/th&gt;
-   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt; non &lt;/th&gt;
-   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt; oui &lt;/th&gt;
-   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;position: sticky; top:0; background-color: #FFFFFF;"&gt; p &lt;/th&gt;
-  &lt;/tr&gt;
- &lt;/thead&gt;
-&lt;tbody&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;alite.7.j.av&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &amp;lt; 0,001 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; non &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 739/899 (82.2 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 130/215 (60.5 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; oui &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 160/899 (17.8 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 85/215 (39.5 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;age&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 61.1 ± 16.5 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 64.3 ± 14.8 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 0.008 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;taille&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 169 ± 9.34 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 171 ± 9.57 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 0.011 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;sexe&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 0.055 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; f &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 318/924 (34.4 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 59/214 (27.6 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;padding-left: 2em;" indentlevel="1"&gt; h &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 606/924 (65.6 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 155/214 (72.4 \%) &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt;  &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;poids.ad&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 76.9 ± 19.3 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 80.6 ± 21.7 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 0.012 &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;
-   &lt;td style="text-align:left;"&gt; &lt;span style=" font-weight: bold;    "&gt;igs&lt;/span&gt; &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 40.8 ± 19.5 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; 49.9 ± 19.4 &lt;/td&gt;
-   &lt;td style="text-align:left;"&gt; &amp;lt; 0,001 &lt;/td&gt;
-  &lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;tfoot&gt;
-&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;&lt;span style="font-style: italic;"&gt;Note: &lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
-&lt;sup&gt;&lt;/sup&gt; moyenne ± ecart-type - nb/total (%) &lt;/td&gt;&lt;/tr&gt;
-&lt;/tfoot&gt;
-&lt;/table&gt;&lt;/div&gt;
+<div id="wuifrwoahc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#wuifrwoahc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#wuifrwoahc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#wuifrwoahc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#wuifrwoahc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#wuifrwoahc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#wuifrwoahc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#wuifrwoahc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#wuifrwoahc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#wuifrwoahc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#wuifrwoahc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#wuifrwoahc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#wuifrwoahc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#wuifrwoahc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#wuifrwoahc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuifrwoahc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#wuifrwoahc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#wuifrwoahc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuifrwoahc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#wuifrwoahc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuifrwoahc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#wuifrwoahc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuifrwoahc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#wuifrwoahc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#wuifrwoahc .gt_left {
+  text-align: left;
+}
+
+#wuifrwoahc .gt_center {
+  text-align: center;
+}
+
+#wuifrwoahc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#wuifrwoahc .gt_font_normal {
+  font-weight: normal;
+}
+
+#wuifrwoahc .gt_font_bold {
+  font-weight: bold;
+}
+
+#wuifrwoahc .gt_font_italic {
+  font-style: italic;
+}
+
+#wuifrwoahc .gt_super {
+  font-size: 65%;
+}
+
+#wuifrwoahc .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#wuifrwoahc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#wuifrwoahc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#wuifrwoahc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#wuifrwoahc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#wuifrwoahc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#wuifrwoahc .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+<table class="gt_table">
+  
+  <thead class="gt_col_headings">
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="2" colspan="1" scope="col" id=""></th>
+      <th class="gt_center gt_columns_top_border gt_column_spanner_outer" rowspan="1" colspan="2" scope="colgroup" id="&lt;strong&gt;Escarres&lt;/strong&gt;">
+        <span class="gt_column_spanner"><strong>Escarres</strong></span>
+      </th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="2" colspan="1" scope="col" id="&lt;strong&gt;p-value&lt;/strong&gt;&lt;sup class=&quot;gt_footnote_marks&quot;&gt;2&lt;/sup&gt;"><strong>p-value</strong><sup class="gt_footnote_marks">2</sup></th>
+    </tr>
+    <tr>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;non&lt;/strong&gt;, N = 997&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>non</strong>, N = 997<sup class="gt_footnote_marks">1</sup></th>
+      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;oui&lt;/strong&gt;, N = 231&lt;sup class=&quot;gt_footnote_marks&quot;&gt;1&lt;/sup&gt;"><strong>oui</strong>, N = 231<sup class="gt_footnote_marks">1</sup></th>
+    </tr>
+  </thead>
+  <tbody class="gt_table_body">
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">age</td>
+<td headers="stat_1" class="gt_row gt_center">64 (52, 73)</td>
+<td headers="stat_2" class="gt_row gt_center">67 (57, 74)</td>
+<td headers="p.value" class="gt_row gt_center">0.011</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
+<td headers="stat_1" class="gt_row gt_center">1</td>
+<td headers="stat_2" class="gt_row gt_center">0</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">taille</td>
+<td headers="stat_1" class="gt_row gt_center">170 (163, 175)</td>
+<td headers="stat_2" class="gt_row gt_center">172 (165, 178)</td>
+<td headers="p.value" class="gt_row gt_center">0.007</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
+<td headers="stat_1" class="gt_row gt_center">85</td>
+<td headers="stat_2" class="gt_row gt_center">10</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">sexe</td>
+<td headers="stat_1" class="gt_row gt_center"></td>
+<td headers="stat_2" class="gt_row gt_center"></td>
+<td headers="p.value" class="gt_row gt_center">0.055</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    f</td>
+<td headers="stat_1" class="gt_row gt_center">318 (34%)</td>
+<td headers="stat_2" class="gt_row gt_center">59 (28%)</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    h</td>
+<td headers="stat_1" class="gt_row gt_center">606 (66%)</td>
+<td headers="stat_2" class="gt_row gt_center">155 (72%)</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
+<td headers="stat_1" class="gt_row gt_center">73</td>
+<td headers="stat_2" class="gt_row gt_center">17</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+    <tr><td headers="label" class="gt_row gt_left" style="font-weight: bold;">poids_ad</td>
+<td headers="stat_1" class="gt_row gt_center">75 (64, 87)</td>
+<td headers="stat_2" class="gt_row gt_center">78 (65, 95)</td>
+<td headers="p.value" class="gt_row gt_center">0.024</td></tr>
+    <tr><td headers="label" class="gt_row gt_left">    Unknown</td>
+<td headers="stat_1" class="gt_row gt_center">65</td>
+<td headers="stat_2" class="gt_row gt_center">5</td>
+<td headers="p.value" class="gt_row gt_center"></td></tr>
+  </tbody>
+  
+  <tfoot class="gt_footnotes">
+    <tr>
+      <td class="gt_footnote" colspan="4"><sup class="gt_footnote_marks">1</sup> Median (IQR); n (%)</td>
+    </tr>
+    <tr>
+      <td class="gt_footnote" colspan="4"><sup class="gt_footnote_marks">2</sup> Wilcoxon rank sum test; Pearson's Chi-squared test</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
 
 ---
 # Des tests&amp;hellip;
-**Analyses multivariées**
+
 #### Régressions
         
 - Linéaire
@@ -683,9 +1181,8 @@ NA 150 **NA** 170 **NA** 165 150
 - Score de propension
 - &amp;hellip;
 
-&lt;BR&gt;
 
-`$$PA=f(\alpha + \beta_1(\text{age})+\beta_2(\text{sexe})+\beta_3(\text{poids})+\epsilon)$$`
+`$$PA=f(\alpha + \beta_1(\text{age})+\beta_2(\text{sexe})+\beta_3(\text{poids})+\epsilon$$`
 ---
 # Analyse multivariée
 &lt;img src="donnees2_files/figure-html/multi-1.png" width="720" /&gt;
@@ -697,7 +1194,6 @@ NA 150 **NA** 170 **NA** 165 150
  #### Forme simplifiée
 
 `$$IC_{1-\alpha}= p \pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}$$`
-&lt;br&gt;
 
 ##### Équation probabiliste
 
@@ -744,14 +1240,13 @@ NA 150 **NA** 170 **NA** 165 150
 ---
 .center[.lg[**Il existe trois types de menteurs :**]]
 
+&lt;br&gt;
 
+.center[.lg[**les menteurs**]]
 
-- .lg[**les menteurs**]
-- .lg[**les fieffés menteurs**]
-- .lg[** *&amp;* les .red[statisticiens]**]
+.center[.lg[**les fieffés menteurs**]]
 
-
-  \end{center
+.center[.lg[** *&amp;* les .rouge[statisticiens]**]]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
@@ -759,8 +1254,7 @@ NA 150 **NA** 170 **NA** 165 150
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false,
-"slideNumberFormat": " ",
-"self_contained": true
+"slideNumberFormat": " "
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
