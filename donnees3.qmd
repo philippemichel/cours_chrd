@@ -1,0 +1,678 @@
+---
+title: "des Données & des Chiffres"
+subtitle: "Gestion & Exploitation des données"
+author: "Philippe MICHEL" 
+logo: "images/novo_usrc.png"
+institute: "USRC - Hôpital NOVO"
+lang: fr
+format: 
+ revealjs: 
+    theme: ["simple", style.scss]
+    chalkboard: true
+    highlight-style: ayu-dark
+cache: true
+---
+
+
+```{r}
+library(baseph)
+library(xaringanthemer)
+library(gtsummary)
+library(colorspace)
+library(epiDisplay)
+library(forestmodel)
+library(labelled)
+library(parameters)
+library(kableExtra)
+library(tidyverse)
+
+tt <- read_csv("patients.csv") |> 
+  mutate_if(is.character, as.factor) |> 
+    janitor::clean_names()
+tt$esc <- as.factor(tt$esc)
+var_label(tt) <- names(tt)
+```
+## Ce topo contient...
+<BR> <BR>
+
+- du Code informatique
+- des Équations
+- de la Littérature
+- et un Chaton
+
+
+## De bonnes données ?{background-color="black" background-image="images/desordre.jpg"} 
+
+## Du travail pour 5 ans&hellip;
+
+![](images/etude1.png)
+  
+
+## Du travail pour 5 ans&hellip;
+
+![](images/etude2.png)
+ 
+# Avant le recueil  {background-color="aquamarine"}
+
+## Écrire le protocole{.center}
+
+![](images/Ecrire.jpg){fig-align="center"}
+
+## Principes & Erreurs
+
+<BR>
+
+::: {.r-fit-text}
+::: {.incremental}
+
+- La science est reproductible : **tout noter**<BR>&nbsp;
+
+- Pour gérer des données on utilise une **base de données**<BR>&nbsp;
+
+- Quand techniquement ça se complique, on **sous-traite**
+:::
+:::
+
+## La science est reproductible
+
+![](images/firm.png){fig-align="center"}
+
+  <BR>&nbsp;
+
+**40 000** articles invalidés
+ou 3 900&hellip;
+
+# des Variables 
+
+## Les variables c'est simple ? 
+
+
+<BR>
+
+```{r sqrt3, echo = TRUE}
+ sqrt(2)^2 == 2
+```
+
+. . .
+
+<BR>
+
+```{r sqrt4, echo = TRUE}
+sqrt(2)^2 - 2 
+```
+
+. . .
+
+<BR>
+
+```{r sqrt5, echo = TRUE}
+all.equal(sqrt(2)^2, 2, tolerance = 1.5e-8) 
+```
+
+## Variables NUMÉRIQUES
+
+<BR>
+  
+  
+:::: {.columns}
+::: {.column width="50%"}
+::: {.callout-note title="Entiers"}
+      RAS
+:::
+:::
+::: {.column width="50%"}
+::: {.callout-warning title="Décimaux"}
+      L'enfer des arrondis !!!
+:::
+:::
+  
+  
+::::
+
+## Variables textuelles{.smaller}
+
+Longtemps, je me suis couché de bonne heure. Parfois, à peine ma bougie éteinte, mes yeux se  fermaient si vite que je n’avais pas le temps de me dire : « Je m’endors. » Et, une  demi-heure après, la pensée qu’il était temps de chercher le sommeil m’éveillait ; je  voulais poser le volume que je croyais avoir encore dans les mains et souffler ma lumière ; je n’avais pas cessé en dormant de faire des réflexions sur ce que je venais de lire, mais ces réflexions avaient pris un tour un peu particulier ; il me semblait que j’étais moi-même ce dont parlait l’ouvrage : une église, un quatuor, la rivalité de François Ier et de Charles Quint. Cette croyance survivait pendant quelques secondes à mon réveil ; elle ne choquait pas ma raison mais pesait comme des écailles sur mes yeux et les empêchait de se rendre compte que le bougeoir n’était plus allumé. Puis elle commençait à me devenir inintelligible, comme après la métempsycose les pensées d’une existence antérieure ; le sujet du livre se détachait de moi, j’étais libre de m’y appliquer ou non ; aussitôt je recouvrais la vue et j’étais bien étonné de trouver autour de moi une obscurité, douce et reposante pour mes yeux, mais peut-être plus encore pour mon esprit, à qui elle apparaissait comme une chose sans cause, incompréhensible, comme une chose vraiment obscure.
+
+##  Variables textuelles
+<BR>
+
+```{r}
+oui <- c("Oui", "OUI", "oui", "oui ", " oui")
+oui <- as_tibble(oui)
+names(oui) <- "ÉCRITURE"
+kbl(oui) |> 
+  kable_classic(full_width = FALSE, font_size = 40)
+```
+
+##  Variables textuelles
+<BR>
+
+```{r}
+oui <- c("Oui", "OUI", "oui", "oui ", " oui")
+oui <- paste0("|", oui,"|")
+oui <- as_tibble(oui)
+names(oui) <- "ÉCRITURE"
+kbl(oui) |> 
+  kable_classic(full_width = FALSE, font_size = 40)
+```
+
+
+## Variables discrètes
+<BR>
+
+:::: {.columns} 
+::: {.column width="49%"}
+:::{.callout-tip icon=false}
+## Non ordonnées
+- Blond
+- Brun
+- Chatain
+- Noir
+- Roux
+:::
+:::  
+::: {.column width="50%"}
+:::{.callout-tip icon=false}
+## Ordonnées
+
+**Échelle de Likert**
+
+- Un peu
+- Beaucoup
+- Passionnément
+- À la folie
+:::
+:::
+
+::::
+
+
+## Date & heure
+<BR>
+
+```{r date}
+Norme <- c("Français","Français","USA", "ISO 8601")
+Écriture <- c("25/12/2022","25/12/22","12-25-2022","2022-12-25")
+dfx <- data.frame(Norme, Écriture)
+kable(dfx) |> 
+    kable_styling(bootstrap_options = "striped", font_size = 40)
+```
+
+
+## Variables autres
+
+    
+:::: {.columns}  
+::: {.column width="49%"}
+- Texte brut
+- Images
+ - Cartes
+ - &hellip;
+::: 
+
+::: {.column width="50%"}
+![](images/chat.jpg)
+:::
+
+::::
+
+
+## Liste de Variables
+```{r}
+nom <- c("Date d'admission", "Âge du patient", "Sexe", "Poids", "IGS II à l’admission", "Oxygénothérapie", "Ventilation invasive", "Sédation", "Curarisation")
+code <- c("date_adm","age","sexe","poids","igs2","o2","vent_inv","sedat","curare")
+type <- c("date","entier","facteur", "décimal","entier","entier","facteur","facteur","facteur")
+valeur <- c("dd/mm/yyyy","18 - 110 ans","F/M","30-200 Kg","6 - 150", "0 - 20 L/min", "oui/non","oui/non","oui/non/NSP")
+dfx <- data.frame(nom,code,type,valeur)
+kable(dfx) |> 
+  kable_styling(bootstrap_options = "striped", font_size = 30, full_width = TRUE) |> 
+  row_spec(2, bold = T,  background = "yellow")
+```
+
+
+## Questionnaire HTML
+
+<BR>
+
+:::: {.columns}  
+
+::: {.column width="50%"}
+### HTML
+```{}
+<p> Âge du patient
+<input  type = 'NUMBER' 
+        name = 'age' 
+        min = '18' 
+        max = '110'>
+</p> 
+```
+:::
+
+::: {.column width="49%"}
+<p> Âge du patient
+ <input type ='NUMBER' 
+  name = 'age' 
+  min = '18' 
+  max = '110'>
+</p> 
+:::
+::::
+
+
+## R
+
+```{r, eval = TRUE, echo = TRUE}
+t.test(age~esc, var.equal = TRUE, data = tt)
+```
+
+
+# des Données  {background-color="aquamarine"}
+
+## Stocker les données{background-color="black" background-image="images/fichier.jpg"}
+ 
+
+## Stocker les données{background-color="black" background-image="images/ecrf.png"}
+
+
+
+## Où stocker ? 
+
+<BR>
+
+::::{.columns}
+
+:::{.column width="48%"}
+
+:::{.callout-warning}
+## Tableur
+     
+- nb max de cas
+- Pas de sécurité à la saisie
+- Pas de sauvegarde intégrée
+- Travail collectif ?
+:::
+:::
+
+:::{.column width="48%"}
+
+:::{.callout-tip}
+## Base de données
+
+- Saisie simple (formulaire)
+- Saisie normée, contrôlée
+- Données sécurisées
+- Base centralisée
+:::
+:::
+
+::::
+
+## Stockage des données en sécurité
+<BR>
+
+ - **Technique** Café, Disque dur HS&hellip;
+ - **Anonyme** Mais il faut pouvoir retrouver un dossier
+ - **Accessible** À tous les centres mais que aux centres 
+ - **Conforme** CNIL&hellip;
+
+
+## Organiser son tableau
+
+<BR>
+
+```{r}
+mm <- matrix ( rep("abc",30), nrow =6) |> 
+  as_tibble()
+names(mm) <- paste0("var_",1:5)
+mm$id <- paste0("cas_",1:6)
+mm <- relocate(mm,id, .before = var_1)
+mm[3,4] <- "NA"
+
+kable(mm) |> 
+  kable_styling(bootstrap_options = "striped", font_size = 30, full_width = TRUE)
+```
+
+## Titres, Sujets & Variables 1
+  
+![](images/tab1.png){fig-align="center"}
+
+
+## Titres, Sujets & Variables 2
+  
+![](images/tab1.png){fig-align="center"}
+
+<BR>
+![](images/tab2.png){fig-align="center"}
+
+## Titres, Sujets & Variables 3{fig-align="center"}
+
+
+![](images/tab2.png){fig-align="center"}
+
+```{r, eval = FALSE, echo = TRUE}
+t.test(SpO2_H1,SpO2_H2)
+```
+. . .
+
+![](images/tab3.png){fig-align="center"}
+
+```{r, eval = FALSE, echo = TRUE}
+t.test(spo2~heure)
+```
+
+
+# Nombre de cas  {background-color="aquamarine"}
+
+
+## Nombre de cas
+<BR> <BR>
+
+
+$$n =\frac{(z_{(1-\mathbf{\alpha})}-z_{(1-\mathbf{\beta})})}{2(\arcsin\sqrt{P_{ref}}-\arcsin \sqrt{\color{red}{P_{nouveau}}})}$$
+
+
+
+## du Nombre
+
+:::{.callout-tip}
+## ISIS 2
+
+Randomised trial of intravenous streptokinase, oral aspirin, both, or neither among **17,187 cases** of suspected acute myocardial infarction: ISIS-2
+
+*Lancet 1988*
+
+*p < 0,00001*
+:::
+
+## du Nombre
+
+
+:::{.callout-note}
+## GUSTO I
+An International Randomized Trial Comparing Four Thrombolytic Strategies for Acute Myocardial Infarction 
+
+*NEJM 1993*
+
+    
+**41 000** cas  (*p = 0,006*)
+:::
+
+## &nbsp; {background-color="white" background-image="images/grippe1.png" background-size="80%"}
+
+
+## &nbsp; {background-color="white" background-image="images/grippe2.png" background-size="80%"}
+
+## Résumé du Avant
+
+::: {.r-fit-text}
+- Protocole
+- Plan d'analyse **Contractuel**
+- Base de données
+- Autorisations légales
+:::
+
+# Recueil des Données{background-color="white" background-image="images/travail.jpg"}
+
+
+
+##  {background-color="black" background-image="images/missing.jpeg"}
+
+
+# Après le recueil  {background-color="aquamarine"}
+
+## Le problème {.smaller}
+ 164 180 187 180 180 170 **NA** 170 165 168 170 160 172
+NA 169 160 **NA** 175 170 NA
+155 172 150 **NA** 170 **NA** 175 180
+NA 165 175 156 167 180 174 180 184 155 176 159 175 169
+170 158 180 155 178 147 155 180 156 178 165 175 171 172 170 165 182
+160 **NA** NA 160 160 155 174 182 182 170
+180 163 **NA** 176 177 177 145 173 173 176 153 170 168 167
+167 169 169 170 150 160 172 174 175 152 170 175 165 181 179
+NA 173 182 177 177 181 181 160 155 155 175 191 174 172
+170 172 183 165 166 155 183 170 170 185 180 170 170 170 170 180 165
+156 180 172 173 170 180 163 172 170 173 170 166 163 175 164 156 175
+175 166 164 170 181 172 165 163 167 170 170 173 163 177 172 165 163
+162 180 162 165 155 175 165 165 159 175 175 170 175 180 160 162 170
+170 170 175 180 158 165 185 175 175 152 165 165 162 162 175 170 158
+158 168 173 160 180 175 176 175 153 180 157 162 150 165 171 168 180
+170 170 170 180 170 170 169 180 170 172 185 172 175 186 168 171 180
+174 165 170 180 162 175 161 178 170 168 165 176 163 160 171 150 160
+165 175 168 170 185 175 175 184 153 158 189 162 170 150 175 178 170
+186 170 178 170 165 175 170 168 175 162 176 180 176 156 169 165 160
+185 184 179 170 150 **NA** 177 180 168 165 152 170 180
+NA 171 176 160 177 170 150 165 160 175 172
+NA 150 **NA** 170 **NA** 165 150
+167 167 170 165 160 **NA** 175 165 160 170 166 165 185 165
+175 182 170 175 162 **NA** 167 162 163 177 160 165 167 165
+165 180 172 **NA** 170 147 173 174 **NA** 172
+160 160 170 177 170 162 170 160 161 155 165 170 170 145 169 175 175
+171 163 178 180 171 178 163 170 170 160
+
+
+## Les stats servent à&hellip;
+
+:::: {.columns}  
+::: {.column width="49%"}
+![](images/pcinq.jpg){width=85%}
+
+::: 
+::: {.column width="50%"}
+- **Décrire sa population**
+- **Présenter les résultats**
+- Faire des tests
+:::
+
+::::
+
+## Il n'y a pas que $p<5\%$
+**Il faut décrire ses données !**  <br>
+  
+:::: {.columns} 
+::: {.column width="49%"}
+```{r sext, fig.height = 12}
+tt |>
+  drop_na(sexe) |>
+  ggplot() +
+  aes(x = sexe, y = taille, fill = sexe) +
+  geom_violin() +
+  geom_boxplot(width = 0.2, fill = "grey90") +
+  theme_light() +
+  scale_fill_discrete_diverging("Green-Orange") +
+  labs(
+    title = "Taille",
+    subtitle = "",
+    x = "",
+    y = "cm",
+    caption = "taille",
+    label = "max"
+  ) +
+  theme_light() +
+  theme(
+    plot.title = element_text(size = 32, face = "bold"),
+    plot.subtitle = element_text(size = 24),
+    axis.title.x = element_blank(),
+    axis.title.y = element_text(size = 24),
+    axis.text.x = element_text(size = 24),
+    axis.text.y = element_text(size = 24),
+    legend.position = "none"
+  )
+```
+::: 
+::: {.column width="50%"}
+
+### Simple
+        
+- Moyennes, écart-type
+- % ± Intervalle de confiance
+- Médiane, quartiles
+:::
+
+::::
+
+## Il n'y a pas que $p<5\%$
+**Il faut décrire ses données !**  <br>
+  
+:::: {.columns} 
+::: {.column width="49%"}
+![](images/data5.png){width=85%}
+
+::: 
+::: {.column width="50%"}
+### Data mining
+  
+- Clustering
+- Analyse factorielle
+- Deep Learning
+- &hellip;
+:::
+
+::::
+
+## Texte
+
+![](images/mots1.png){fig-align="right"}
+
+## Cartes
+
+![](images/carte.jpg){fig-align="right"}
+
+## Cartes
+![](images/echo.jpg){fig-align="right"}
+
+## Des tests&hellip;{.smaller}
+:::: {.columns}  
+::: {.column width="49%"}
+**Test simples**
+      
+- t de Student
+- $\chi^2$
+- non paramétrique de Wilcoxon
+- ANOVA
+- Coefficient de corrélation 
+- Cochran-Mantel-Haenszel
+- &hellip;
+:::
+
+::: {.column width="50%"}
+$$s^2 =\sum_{x=1}^n\frac{(x_n-\bar{x})^2}{n-1}$$
+
+$$f(x)=\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{\frac{-(x-\mu)^2}{2\sigma^{2}}}$$
+
+$$t^{n-1}_{1-\alpha/2}<\frac{|m_1-m_2|}{S^2\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}}$$
+
+$$\xi_{CMH} = \frac{\big[{\sum_{i=1}^K (A_i - {N_{1i} M_{1i}\over T_i})\big]^2}} {\sum_{i=1}^K{N_{1i}N_{2i}M_{1i}M_{2i}\over T_i^2(T_i-1)}}$$
+:::
+
+::::
+
+## Analyse monovariée
+
+```{r}
+tt[, c(5, 6, 8:10, 30)] |>
+  tbl_summary(digits = all_continuous() ~ 2,
+              missing = "no",
+              by = esc) |>
+  add_p() |>
+  add_n() |>
+  bold_labels() |>
+  modify_spanning_header(c("stat_1", "stat_2") ~ "**Escarres**") |>
+  modify_header(label ~ " ")
+
+```
+
+## Corrélation & Causalité
+<BR> <BR>
+![](images/bio1.png)
+
+
+
+## Corrélation & Causalité
+
+![](images/bio2.png)
+
+
+## Des tests&hellip;
+
+### Régressions
+        
+- Linéaire
+- Logistique
+- Score de propension
+- &hellip;
+
+
+$$Escarre =f(\alpha + \beta_1(\text{age})+\beta_2(\text{sexe})+\beta_3(\text{poids})+\epsilon$$
+
+## Analyse multivariée
+```{r multi}
+glm(esc ~ alite_7_j_av + age  + sexe + poids_ad + igs, data = tt, family = "binomial") |> 
+  forest_model(exponentiate = TRUE)
+```
+
+
+
+## Un peu de recul&hellip;
+ 
+
+$$IC_{1-\alpha}= p \pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}$$
+
+<BR>
+
+$$\mathbb{P}\left(-z_{\alpha/2} \leq
+      \frac{\frac{X}{n}-p}{\sqrt{\frac{p(1-p)}{n}}} \leq
+      z_{\alpha/2}\right)\thickapprox 1-\alpha$$
+
+
+
+
+
+
+## Un peu de recul&hellip;
+
+$$IC_{1-\alpha}= p \pm z_{\alpha/2}\sqrt{\frac{p(1-p)}{n}}$$
+<br>
+
+![](images/vingt.png){fig-align="center"}
+
+
+## Un peu de recul&hellip;
+
+![](images/analyse.png){fig-align="center" width=90%}
+
+:::{.aside}
+R. Silberzahn,2018
+:::
+
+## Un peu de recul&hellip;
+
+![](images/analyse3.png){fig-align="center" width=80%}
+
+:::{.aside}
+R. Silberzahn,2018
+:::
+
+
+## CONCLUSION{auto-animate=true}
+
+![](images/garbage.jpg){fig-align="center" width=80%}
+
+<BR>
+
+
+- **Qualité des données**
+- **Taille de l'échantillon**
+- **Du bon sens**
+- **Se méfier de tout**
+
+## Il existe trois types de menteurs{auto-animate=true}
+
+<br>
+
+::: {.r-fit-text}
+**Les menteurs**
+
+**Les fieffés menteurs**
+
+**Et les statisticiens**
+:::
