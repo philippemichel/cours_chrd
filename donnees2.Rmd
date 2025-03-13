@@ -7,13 +7,16 @@ date: "![](images/raddict.png){width=15%}"
 lang: fr
 output:
   xaringan::moon_reader:
+    
+    
+    
     css: [default, metropolis, metropolis-fonts,"style.css"]
     self_contained: false
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
-      countIncrementalSlides: false
+      countIncrementalSlides: true
       slideNumberFormat: " "
 ---
 
@@ -28,12 +31,11 @@ options(crayon.enabled = TRUE)
 
 ```{r lib, include= FALSE}
 library(baseph)
-library(table1)
-library(ggplot2)
 library(xaringanthemer)
 library(gtsummary)
+library(colorspace)
 library(epiDisplay)
-library(knitr)
+library(forestmodel)
 library(labelled)
 library(parameters)
 library(kableExtra)
@@ -457,9 +459,10 @@ tt |>
   drop_na(sexe) |>
   ggplot() +
   aes(x = sexe, y = taille, fill = sexe) +
-  geom_violindot(fill_dots = "black") +
-  theme_modern() +
-  scale_fill_material_d() +
+  geom_violin() +
+  geom_boxplot(width = 0.2, fill = "grey90") +
+  theme_light() +
+  scale_fill_discrete_diverging("Green-Orange") +
   labs(
     title = "Taille",
     subtitle = "",
@@ -574,8 +577,8 @@ $$PA=f(\alpha + \beta_1(\text{age})+\beta_2(\text{sexe})+\beta_3(\text{poids})+\
 ---
 # Analyse multivariée
 ```{r multi}
-ll <- glm(esc ~ alite_7_j_av + age  + sexe + poids_ad + igs, data = tt, family = "binomial")
-plot(parameters(ll, standardize="refit", exponentiate = TRUE))
+glm(esc ~ alite_7_j_av + age  + sexe + poids_ad + igs, data = tt, family = "binomial") |> 
+  forest_model(exponentiate = TRUE)
 ```
 
 
