@@ -17,6 +17,8 @@ editor:
 ---
 
 ```{r}
+#| label: setup
+ 
 library(baseph)
 library(xaringanthemer)
 library(gtsummary)
@@ -119,6 +121,8 @@ Valident l'échantillon.
 <BR>
 
 ```{r sqrt3, echo = TRUE}
+#| label: sqrt1
+
  sqrt(2)^2 == 2
 ```
 
@@ -127,6 +131,8 @@ Valident l'échantillon.
 <BR>
 
 ```{r sqrt4, echo = TRUE}
+#| label: sqrt2
+
 sqrt(2)^2 - 2 
 ```
 
@@ -135,6 +141,8 @@ sqrt(2)^2 - 2
 <BR>
 
 ```{r sqrt5, echo = TRUE}
+#| label: sqrt3
+
 all.equal(sqrt(2)^2, 2, tolerance = 1.5e-8) 
 ```
 
@@ -258,7 +266,7 @@ kbl(oui) |>
 
 ```{r date}
 Norme <- c("Français","Français","Français", "USA", "ISO 8601")
-Écriture <- c("25/12/2024","25/12/24", "24 décembre 2024", "12-25-2024","2024-12-25")
+Écriture <- c("25/12/2024","25/12/24", "24 décembre 2024", "12-25-2024","2024-12-24")
 dfx <- data.frame(Norme, Écriture)
 kable(dfx) |> 
     kable_styling(bootstrap_options = "striped", font_size = 40)
@@ -327,7 +335,9 @@ kable(dfx) |>
 
 ## R
 
-```{r, eval = TRUE, echo = TRUE}
+```{r}
+#| label: student1
+ 
 t.test(age~escarre, var.equal = TRUE, 
        data = tt)
 ```
@@ -380,6 +390,8 @@ t.test(age~escarre, var.equal = TRUE,
 <BR>
 
 ```{r}
+#| label: tabsimple
+ 
 mm <- matrix ( rep("abc",30), nrow =6) |> 
   as_tibble()
 names(mm) <- paste0("var_",1:5)
@@ -420,6 +432,7 @@ t.test(spo2~heure)
 # Nombre de cas {background-color="aquamarine"}
 
 ## Nombre de cas
+
 
 <BR> <BR>
 
@@ -519,7 +532,7 @@ for Acute Myocardial Infarction
 **Il faut décrire ses données !** <br>
 
 ::::: columns
-::: {.column width="49%"}
+::: {.column width="50%"}
 
 ```{r, fig.height = 12}
 tt |>
@@ -563,11 +576,11 @@ tt |>
 **Il faut décrire ses données !** <br>
 
 ::::: columns
-::: {.column width="49%"}
+::: {.column width="65%"}
 ![](images/data5.png){width="85%"}
 :::
 
-::: {.column width="50%"}
+::: {.column width="35%"}
 ### Data mining
 
 -   Clustering
@@ -629,7 +642,6 @@ tt |>
 
 ![](images/bio2.png)
 
-
 ## Régressions
 
 -   Linéaire
@@ -644,7 +656,7 @@ $$\text{Escarre} =f(\alpha + \beta_1(\text{age})+\beta_2(\text{sexe})+\beta_3(\t
 ```{r}
 #| label: tbl-multi
 #| tbl-cap: Analyse multivariée
-glm(escarre ~ igs2 + age  + sexe + admission, data = tt, family = "binomial") |> 
+glm(escarre ~ igs2 + age  + sexe + lieudevie1, data = tt, family = "binomial") |> 
   forest_model(exponentiate = TRUE)
 ```
 
